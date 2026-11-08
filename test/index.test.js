@@ -14,3 +14,8 @@ test('subtract takes the second number from the first', () => {
   const { subtract } = require('../src/index.js');
   assert.strictEqual(subtract(5, 3), 2);
 });
+
+test('multiply returns the product', () => {
+  const { multiply } = require('../src/index.js');
+  assert.strictEqual(multiply(4, 3), 12);
+});

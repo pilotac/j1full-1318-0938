@@ -9,3 +9,8 @@ test('add sums two numbers', () => {
 test('add handles negatives', () => {
   assert.strictEqual(add(-2, 1), -1);
 });
+
+test('subtract takes the second number from the first', () => {
+  const { subtract } = require('../src/index.js');
+  assert.strictEqual(subtract(5, 3), 2);
+});

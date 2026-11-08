@@ -1,0 +1,11 @@
+{
+  "name": "j1full-1318-0938",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Tiny calculator used to try LaneSync releases",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}

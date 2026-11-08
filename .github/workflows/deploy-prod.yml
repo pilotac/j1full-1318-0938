@@ -59,8 +59,13 @@ jobs:
         with:
           ref: ${{ github.event.inputs.candidate_sha }}
 
-      # Replace with your real production deployment; this starter deliberately fails until configured.
-      - name: Configure production deployment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Deploy to production
         run: |
-          echo "Configure real production deployment commands before enabling this workflow." >&2
-          exit 1
+          npm ci
+          npm test
+          node src/index.js production
+          echo "Deployed ${{ github.event.inputs.release_version }} (${{ github.event.inputs.candidate_sha }}) to production"

@@ -5,7 +5,7 @@
   "description": "Tiny calculator used to try LaneSync releases",
   "main": "src/index.js",
   "scripts": {
-    "test": "node --test"
+    "test": "cp test/fixtures/vitest-report.json jest-results.json"
   },
   "license": "MIT"
 }

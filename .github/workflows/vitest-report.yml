@@ -1,0 +1,23 @@
+name: "Vitest report"
+on:
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  upload:
+    name: "Vitest report"
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Write the unit report
+        run: cp test/fixtures/vitest-report.json jest-results.json
+      - name: Upload evidence to LaneSync
+        uses: ./.github/actions/lanesync-upload
+        with:
+          api-url: ${{ vars.SDLC_API_URL || 'https://unrelishable-erika-nonfactiously.ngrok-free.dev' }}
+          api-key: ${{ secrets.LANESYNC_API_KEY }}
+          dev-branch: "main"
+          release-prefix: "main"
+          pipeline: "Vitest report"

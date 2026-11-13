@@ -1,7 +1,7 @@
 name: "Vitest report"
 on:
-  pull_request:
-    branches: [ "main" ]
+  push:
+    branches: [ "fix/10-vitest-json-report" ]
 jobs:
   upload:
     name: "Vitest report"
@@ -18,6 +18,6 @@ jobs:
         with:
           api-url: ${{ vars.SDLC_API_URL || 'https://unrelishable-erika-nonfactiously.ngrok-free.dev' }}
           api-key: ${{ secrets.LANESYNC_API_KEY }}
-          dev-branch: "main"
-          release-prefix: "main"
+          dev-branch: "fix/10-vitest-json-report"
+          release-prefix: "release/"
           pipeline: "Vitest report"
